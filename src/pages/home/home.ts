@@ -12,7 +12,7 @@ import { CurrencyName } from './currencyName';
 export class HomePage {
 
   
-  coinsMarketData: any;
+  coinsMarketData: any = [];
   loading: any;
   currencyData: any;
   currency: any = "INR";
