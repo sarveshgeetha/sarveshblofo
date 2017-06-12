@@ -20,7 +20,7 @@ export class HttpProvider {
   }
 
   getCurrencyData(){
-    return this.http.get('http://coincap.io/exchange_rates').map(res => res.json());
+    return this.http.get('https://coincap.io/exchange_rates').map(res => res.json());
   }
 
 }
