@@ -44793,7 +44793,7 @@ var HttpProvider = (function () {
         console.log('Hello HttpProvider Provider');
     }
     HttpProvider.prototype.getJsonData = function () {
-        return this.http.get('https://api.coinmarketcap.com/v1/ticker/?convert=INR').map(function (res) { return res.json(); });
+        return this.http.get('https://api.coinmarketcap.com/v1/ticker/?convert=INR&limit=10').map(function (res) { return res.json(); });
     };
     HttpProvider.prototype.getCurrencyData = function () {
         return this.http.get('http://coincap.io/exchange_rates').map(function (res) { return res.json(); });
@@ -55791,7 +55791,7 @@ var AboutPage = (function () {
 }());
 AboutPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-about',template:/*ion-inline-start:"/Users/mathialagangnd/Desktop/IONIC/myApp/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/mathialagangnd/Desktop/IONIC/myApp/src/pages/about/about.html"*/
+        selector: 'page-about',template:/*ion-inline-start:"/Users/mathialagangnd/Desktop/IONIC/sarveshblofo/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/mathialagangnd/Desktop/IONIC/sarveshblofo/src/pages/about/about.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], AboutPage);
@@ -55825,7 +55825,7 @@ var ContactPage = (function () {
 }());
 ContactPage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-contact',template:/*ion-inline-start:"/Users/mathialagangnd/Desktop/IONIC/myApp/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contact\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-left></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/mathialagangnd/Desktop/IONIC/myApp/src/pages/contact/contact.html"*/
+        selector: 'page-contact',template:/*ion-inline-start:"/Users/mathialagangnd/Desktop/IONIC/sarveshblofo/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contact\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-left></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/mathialagangnd/Desktop/IONIC/sarveshblofo/src/pages/contact/contact.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
 ], ContactPage);
@@ -55865,6 +55865,26 @@ var HomePage = (function () {
         this.currencyOffset = 1;
         this.currencySymbol = "₹";
         this.currencyName = [];
+        this.sampleData = [
+            { title: 'Reggae', id: 1 },
+            { title: 'Chill', id: 2 },
+            { title: 'Dubstep', id: 3 },
+            { title: 'Indie', id: 4 },
+            { title: 'Rap', id: 5 },
+            { title: 'Cowbell', id: 6 },
+            { title: 'Reggae2', id: 7 },
+            { title: 'Chill2', id: 8 },
+            { title: 'Dubstep2', id: 9 },
+            { title: 'Indie2', id: 10 },
+            { title: 'Rap2', id: 11 },
+            { title: 'Cowbell2', id: 12 },
+            { title: 'Reggae3', id: 13 },
+            { title: 'Chill3', id: 14 },
+            { title: 'Dubstep3', id: 15 },
+            { title: 'Indie3', id: 16 },
+            { title: 'Rap3', id: 17 },
+            { title: 'Cowbell3', id: 18 }
+        ];
         this.loading = this.loadingCtrl.create({
             content: "\n      <ion-spinner ></ion-spinner>"
         });
@@ -55873,8 +55893,8 @@ var HomePage = (function () {
     HomePage.prototype.coinRefresh = function (refresher) {
         var _this = this;
         this.httpProvider.getJsonData().subscribe(function (result) {
-            _this.newsData = result;
-            console.log("Success : " + _this.newsData);
+            _this.coinsMarketData = result;
+            console.log("Success : " + _this.coinsMarketData);
         }, function (err) {
             console.error("Error : " + err);
         }, function () {
@@ -55923,8 +55943,8 @@ var HomePage = (function () {
         var _this = this;
         this.loading.present();
         this.httpProvider.getJsonData().subscribe(function (result) {
-            _this.newsData = result;
-            console.log("Success : " + _this.newsData);
+            _this.coinsMarketData = result;
+            console.log("Success : " + _this.coinsMarketData);
         }, function (err) {
             console.error("Error : " + err);
         }, function () {
@@ -55940,7 +55960,7 @@ __decorate([
 ], HomePage.prototype, "currencySelect", void 0);
 HomePage = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/mathialagangnd/Desktop/IONIC/myApp/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Coins Market</ion-title>\n    <ion-buttons end>\n      <button ion-button outline color="secondary" (click)="openModal()">\n        <p style="padding:5px;">{{currency | uppercase}}</p>\n      </button>  \n\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-select #currencySelect id="currencySelect" [(ngModel)]="currency" (ionChange)="changeCurrencyOffset($event,currency)" end>\n    <!--<ion-option value="inr">INR</ion-option>\n    <ion-option value="usd">USD</ion-option>-->\n     <ion-option *ngFor="let currency of currencyName" [value]="currency.name">{{currency.name}}</ion-option>\n  </ion-select>\n  <ion-refresher (ionRefresh)="coinRefresh($event)">\n    <ion-refresher-content\n      pullingIcon="arrow-dropdown"\n      pullingText="Pull to refresh"\n      refreshingSpinner="circles"\n      refreshingText="Refreshing...">\n    </ion-refresher-content>\n  </ion-refresher>\n<ion-list>\n<ion-item  style="padding-left:0px;" *ngFor="let item of newsData">\n  <ion-grid style=" height: 100%; justify-content: center;" item-content>\n      <ion-row style="height: 100%;">\n        <ion-col col-2><img width = "32px" height="32px" src="https://files.coinmarketcap.com/static/img/coins/32x32/{{item.id}}.png"/>\n </ion-col>\n        <ion-col align-self-end col-10 style="display:flex; align-items:center; height: 100%;"> \n            <p >{{item.name}}</p> \n            <p style="margin-left:8px;font-weight:bold;padding-bottom: 0.5px;">{{item.symbol}}</p>\n            <div class="price_col"><p>{{currencySymbol}} {{item.price_usd * currencyOffset | number : \'1.2-3\'}}</p></div>\n        </ion-col>\n      </ion-row>\n  </ion-grid>\n</ion-item>\n</ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/mathialagangnd/Desktop/IONIC/myApp/src/pages/home/home.html"*/,
+        selector: 'page-home',template:/*ion-inline-start:"/Users/mathialagangnd/Desktop/IONIC/sarveshblofo/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Coins Market</ion-title>\n    <ion-buttons end>\n      <button ion-button outline color="secondary" (click)="openModal()">\n        <p style="padding:5px;">{{currency | uppercase}}</p>\n      </button>  \n\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-select #currencySelect id="currencySelect" [(ngModel)]="currency" (ionChange)="changeCurrencyOffset($event,currency)" end>\n    <!--<ion-option value="inr">INR</ion-option>\n    <ion-option value="usd">USD</ion-option>-->\n     <ion-option *ngFor="let currency of currencyName" [value]="currency.name">{{currency.name}}</ion-option>\n  </ion-select>\n  <ion-refresher (ionRefresh)="coinRefresh($event)">\n    <ion-refresher-content\n      pullingIcon="arrow-dropdown"\n      pullingText="Pull to refresh"\n      refreshingSpinner="circles"\n      refreshingText="Refreshing...">\n    </ion-refresher-content>\n  </ion-refresher>\n<ion-list [virtualScroll]="coinsMarketData" approxItemHeight="40px">\n<ion-item  style="padding-left:0px;" *virtualItem="let coinsMarketData">\n  <ion-grid style=" height: 100%; justify-content: center;" item-content>\n      <ion-row style="height: 100%;">\n        <ion-col col-2><img width = "32px" height="32px" src="https://files.coinmarketcap.com/static/img/coins/32x32/{{coinsMarketData.id}}.png"/>\n </ion-col>\n    <ion-col align-self-end col-10 style="display:flex; align-items:center; height: 100%;"> \n            <p >{{coinsMarketData.name}}</p> \n            <p style="margin-left:8px;font-weight:bold;padding-bottom: 0.5px;">{{coinsMarketData.symbol}}</p>\n            <div class="price_col"><p>{{currencySymbol}} {{coinsMarketData.price_usd * currencyOffset | number : \'1.2-3\'}}</p></div>\n        </ion-col>\n      </ion-row>\n  </ion-grid>\n</ion-item>\n</ion-list>\n</ion-content>\n'/*ion-inline-end:"/Users/mathialagangnd/Desktop/IONIC/sarveshblofo/src/pages/home/home.html"*/,
         providers: [__WEBPACK_IMPORTED_MODULE_2__providers_http_http__["a" /* HttpProvider */]]
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_http_http__["a" /* HttpProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
@@ -55980,7 +56000,7 @@ var TabsPage = (function () {
     return TabsPage;
 }());
 TabsPage = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/Users/mathialagangnd/Desktop/IONIC/myApp/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabIcon="cash"></ion-tab>\n  <ion-tab [root]="tab2Root" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabIcon="contacts"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/mathialagangnd/Desktop/IONIC/myApp/src/pages/tabs/tabs.html"*/
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/Users/mathialagangnd/Desktop/IONIC/sarveshblofo/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabIcon="cash"></ion-tab>\n  <ion-tab [root]="tab2Root" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabIcon="contacts"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/mathialagangnd/Desktop/IONIC/sarveshblofo/src/pages/tabs/tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -77142,7 +77162,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/Users/mathialagangnd/Desktop/IONIC/myApp/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/mathialagangnd/Desktop/IONIC/myApp/src/app/app.html"*/,
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({template:/*ion-inline-start:"/Users/mathialagangnd/Desktop/IONIC/sarveshblofo/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/mathialagangnd/Desktop/IONIC/sarveshblofo/src/app/app.html"*/,
         providers: [__WEBPACK_IMPORTED_MODULE_4__providers_http_http__["a" /* HttpProvider */]]
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])

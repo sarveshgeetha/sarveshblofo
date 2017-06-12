@@ -16,7 +16,7 @@ export class HttpProvider {
   }
 
   getJsonData(){
-    return this.http.get('https://api.coinmarketcap.com/v1/ticker/?convert=INR').map(res => res.json());
+    return this.http.get('https://api.coinmarketcap.com/v1/ticker/?convert=INR&limit=10').map(res => res.json());
   }
 
   getCurrencyData(){
