@@ -11,8 +11,6 @@
 
 <ion-content>
   <ion-select #currencySelect id="currencySelect" [(ngModel)]="currency" (ionChange)="changeCurrencyOffset($event,currency)" end>
-    <!--<ion-option value="inr">INR</ion-option>
-    <ion-option value="usd">USD</ion-option>-->
      <ion-option *ngFor="let currency of currencyName" [value]="currency.name">{{currency.name}}</ion-option>
   </ion-select>
   <ion-refresher (ionRefresh)="coinRefresh($event)">
