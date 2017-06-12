@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Coins Market</ion-title>
+    <ion-buttons end>
+      <button ion-button outline color="secondary" (click)="openModal()">
+        <p style="padding:5px;">{{currency | uppercase}}</p>
+      </button>  
+
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-select #currencySelect id="currencySelect" [(ngModel)]="currency" (ionChange)="changeCurrencyOffset($event,currency)" end>
+    <!--<ion-option value="inr">INR</ion-option>
+    <ion-option value="usd">USD</ion-option>-->
+     <ion-option *ngFor="let currency of currencyName" [value]="currency.name">{{currency.name}}</ion-option>
+  </ion-select>
+  <ion-refresher (ionRefresh)="coinRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing...">
+    </ion-refresher-content>
+  </ion-refresher>
+<ion-list>
+<ion-item  style="padding-left:0px;" *ngFor="let item of newsData">
+  <ion-grid style=" height: 100%; justify-content: center;" item-content>
+      <ion-row style="height: 100%;">
+        <ion-col col-2><img width = "32px" height="32px" src="https://files.coinmarketcap.com/static/img/coins/32x32/{{item.id}}.png"/>
+ </ion-col>
+        <ion-col align-self-end col-10 style="display:flex; align-items:center; height: 100%;"> 
+            <p >{{item.name}}</p> 
+            <p style="margin-left:8px;font-weight:bold;padding-bottom: 0.5px;">{{item.symbol}}</p>
+            <div class="price_col"><p>{{currencySymbol}} {{item.price_usd * currencyOffset | number : '1.2-3'}}</p></div>
+        </ion-col>
+      </ion-row>
+  </ion-grid>
+</ion-item>
+</ion-list>
+</ion-content>
