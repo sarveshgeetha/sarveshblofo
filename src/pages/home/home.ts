@@ -13,33 +13,14 @@ export class HomePage {
 
   
   coinsMarketData: any = [];
+  coinsMarketDataToUse: any = [];
   loading: any;
   currencyData: any;
   currency: any = "INR";
   currencyOffset: any = 1;
   currencySymbol: any = "₹";
   currencyName: CurrencyName[] = [];
-
-  sampleData : any = [
-    {title: 'Reggae', id: 1},
-    {title: 'Chill', id: 2},
-    {title: 'Dubstep', id: 3},
-    {title: 'Indie', id: 4},
-    {title: 'Rap', id: 5},
-    {title: 'Cowbell', id: 6},
-    {title: 'Reggae2', id: 7},
-    {title: 'Chill2', id: 8},
-    {title: 'Dubstep2', id: 9},
-    {title: 'Indie2', id: 10},
-    {title: 'Rap2', id: 11},
-    {title: 'Cowbell2', id: 12},
-    {title: 'Reggae3', id: 13},
-    {title: 'Chill3', id: 14},
-    {title: 'Dubstep3', id: 15},
-    {title: 'Indie3', id: 16},
-    {title: 'Rap3', id: 17},
-    {title: 'Cowbell3', id: 18}
-  ];
+  searchQuery: string = '';
 
   @ViewChild('currencySelect') currencySelect: Select;
 
@@ -51,13 +32,34 @@ export class HomePage {
     });
 
     this.getCurrencyData();
+     this.initializeItems();
+  }
+
+initializeItems() {
+    this.coinsMarketDataToUse = this.coinsMarketData;
+}
+
+
+  searchCoins(ev: any) {
+    // Reset items back to all of the items
+    this.initializeItems();
+
+    // set val to the value of the searchbar
+    let val = ev.target.value;
+
+    // if the value is an empty string don't filter the items
+    if (val && val.trim() != '') {
+      this.coinsMarketDataToUse = this.coinsMarketDataToUse.filter((item) => {
+        return ((item.name.toLowerCase().indexOf(val.toLowerCase()) > -1) || (item.symbol.toLowerCase().indexOf(val.toLowerCase()) > -1) );
+      })
+    }
   }
 
 coinRefresh(refresher){
-    
      this.httpProvider.getJsonData().subscribe(
       result => {
         this.coinsMarketData=result;
+        this.coinsMarketDataToUse = this.coinsMarketData;
         console.log("Success : "+this.coinsMarketData);
       },
       err =>{
@@ -123,6 +125,7 @@ getCurrencyData(){
     this.httpProvider.getJsonData().subscribe(
       result => {
         this.coinsMarketData=result;
+        this.coinsMarketDataToUse = this.coinsMarketData;
         console.log("Success : "+this.coinsMarketData);
       },
       err =>{
