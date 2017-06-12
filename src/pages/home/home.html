@@ -21,13 +21,13 @@
 
 <ion-searchbar (ionInput)="searchCoins($event)" animated="true"></ion-searchbar>
 
-<ion-list [virtualScroll]="coinsMarketDataToUse" approxItemHeight="40px">
+<ion-list [virtualScroll]="coinsMarketDataToUse">
 <ion-item  style="padding-left:0px;" *virtualItem="let coinsMarketDataToUse">
   <ion-grid style=" height: 100%; justify-content: center;" item-content>
-      <ion-row style="height: 100%;">
+      <ion-row style="height: 45px; display:flex;">
         <ion-col col-2><img width = "32px" height="32px" src="https://files.coinmarketcap.com/static/img/coins/32x32/{{coinsMarketDataToUse.id}}.png"/>
  </ion-col>
-    <ion-col align-self-end col-10 style="display:flex; align-items:center; height: 100%;"> 
+    <ion-col col-10 style="display:flex; align-items:center; height: 100%;"> 
             <p >{{coinsMarketDataToUse.name}}</p> 
             <p style="margin-left:8px;font-weight:bold;padding-bottom: 0.5px;">{{coinsMarketDataToUse.symbol}}</p>
             <div class="price_col"><p class="price_green">{{currencySymbol}} {{coinsMarketDataToUse.price_usd * currencyOffset | number : '1.2-3'}}</p></div>
