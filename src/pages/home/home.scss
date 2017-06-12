@@ -1,6 +1,6 @@
 page-home {
 .price_col {
-//   border-radius: 25px;
+  border-radius: 50px;
   border: 2px solid #73AD21;
   padding: 5px;
    position: absolute;
@@ -8,5 +8,8 @@ page-home {
 }
 #currencySelect {
     display: none !important;
+}
+.price_green {
+        color: rgb(115, 173, 33);
 }
 }

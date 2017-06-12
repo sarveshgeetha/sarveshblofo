@@ -30,7 +30,7 @@
     <ion-col align-self-end col-10 style="display:flex; align-items:center; height: 100%;"> 
             <p >{{coinsMarketDataToUse.name}}</p> 
             <p style="margin-left:8px;font-weight:bold;padding-bottom: 0.5px;">{{coinsMarketDataToUse.symbol}}</p>
-            <div class="price_col"><p>{{currencySymbol}} {{coinsMarketDataToUse.price_usd * currencyOffset | number : '1.2-3'}}</p></div>
+            <div class="price_col"><p class="price_green">{{currencySymbol}} {{coinsMarketDataToUse.price_usd * currencyOffset | number : '1.2-3'}}</p></div>
         </ion-col>
       </ion-row>
   </ion-grid>
