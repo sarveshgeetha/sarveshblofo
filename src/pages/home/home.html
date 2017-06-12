@@ -18,10 +18,7 @@
   </ion-select>
   <ion-refresher (ionRefresh)="coinRefresh($event)">
     <ion-refresher-content
-      pullingIcon="arrow-dropdown"
-      pullingText="Pull to refresh"
-      refreshingSpinner="circles"
-      refreshingText="Refreshing...">
+      refreshingSpinner="bubbles">
     </ion-refresher-content>
   </ion-refresher>
 <ion-list [virtualScroll]="coinsMarketData" approxItemHeight="40px">
