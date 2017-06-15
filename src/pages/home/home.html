@@ -25,12 +25,12 @@
 <ion-item  style="padding-left:0px;" *virtualItem="let coinsMarketDataToUse">
   <ion-grid style=" height: 100%; justify-content: center;" item-content>
       <ion-row style="height: 45px; display:flex;">
-        <ion-col col-2><img width = "32px" height="32px" src="https://files.coinmarketcap.com/static/img/coins/32x32/{{coinsMarketDataToUse.id}}.png"/>
+        <ion-col col-2><img width = "32px" height="32px" src="https://coincap.io/images/coins/{{coinsMarketDataToUse.long | removespaces}}.png"/>
  </ion-col>
     <ion-col col-10 style="display:flex; align-items:center; height: 100%;"> 
-            <p >{{coinsMarketDataToUse.name}}</p> 
-            <p style="margin-left:8px;font-weight:bold;padding-bottom: 0.5px;">{{coinsMarketDataToUse.symbol}}</p>
-            <div class="price_col"><p class="price_green">{{currencySymbol}} {{coinsMarketDataToUse.price_usd * currencyOffset | number : '1.2-3'}}</p></div>
+            <p >{{coinsMarketDataToUse.long}}</p> 
+            <p style="margin-left:8px;font-weight:bold;padding-bottom: 0.5px;">{{coinsMarketDataToUse.short}}</p>
+            <div class="price_col" [ngClass]="{'price_col_default':defaultColor, 'price_col_green active':coinsMarketDataToUse.green ,'price_col_red':coinsMarketDataToUse.red }" ><p [ngClass]="{'price_default':defaultColor, 'price_green':coinsMarketDataToUse.green ,'price_red':coinsMarketDataToUse.red }">{{currencySymbol}} {{coinsMarketDataToUse.price * currencyOffset | number : '1.2-3'}}</p></div>
         </ion-col>
       </ion-row>
   </ion-grid>

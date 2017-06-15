@@ -1,4 +1,6 @@
-
-www/assets/fonts/ionicons.eot
-www/assets/fonts/ionicons.svg
 www/*
+node_modules/*
+platforms/*
+*.md
+*.md
+plugins/*

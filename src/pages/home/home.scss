@@ -1,15 +1,56 @@
 page-home {
 .price_col {
-  border-radius: 50px;
-  border: 2px solid #73AD21;
-  padding: 5px;
-   position: absolute;
+    border-radius: 50px;
+    border: 2px solid;
+    padding: 5px;
+    position: absolute;
     right: 0px;
+}
+.price_col_default {
+    border-color: #afafaf;
+}
+.price_col_green {
+  border-color: #73AD21;
+}
+.price_col_red {
+  border-color: #ff0000
 }
 #currencySelect {
     display: none !important;
 }
+.price_default {
+        color: #afafaf;
+}
 .price_green {
         color: rgb(115, 173, 33);
 }
+.price_red {
+        color: #ff0000
+}
+
+@-webkit-keyframes demo {
+    0% {
+        background-color: #FFFFFF;
+        opacity:1;
+    }
+    50% {
+        background-color:rgba(149, 255, 0, 0.55);
+    }
+    100% {
+        background-color: #FFFFFF;
+    }
+}
+
+.active{
+  -webkit-animation-name: demo;
+    -webkit-animation-duration: 200ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: linear;
+  -moz-animation-name: demo;
+    -moz-animation-duration: 200ms;
+    -moz-animation-iteration-count: 1;
+    -moz-animation-timing-function: linear;
+}
+
+
 }
