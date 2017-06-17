@@ -190,10 +190,10 @@ getCurrencyData(){
       } ,
       () => {
         this.loading.dismiss();
-        let timeoutId = setInterval(() => { 
-          this.coinsDataLoop ();
-          console.log('CoinsDataLoop Called');
-        }, 3000);
+        // let timeoutId = setInterval(() => { 
+        //   this.coinsDataLoop ();
+        //   console.log('CoinsDataLoop Called');
+        // }, 3000);
         console.log('getData completed');
       }
     );
