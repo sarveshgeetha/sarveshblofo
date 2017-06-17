@@ -16,11 +16,11 @@ export class HttpProvider {
   }
 
   getJsonData(){
-    return this.http.get('https://api.coinmarketcap.com/v1/ticker/?convert=INR').map(res => res.json());
+    return this.http.get('http://www.coincap.io/front').map(res => res.json());
   }
 
   getCurrencyData(){
-    return this.http.get('http://coincap.io/exchange_rates').map(res => res.json());
+    return this.http.get('https://coincap.io/exchange_rates').map(res => res.json());
   }
 
 }

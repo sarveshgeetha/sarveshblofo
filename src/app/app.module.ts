@@ -12,6 +12,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpProvider } from '../providers/http/http';
+import { RemoveSpaces } from '../pages/home/remove-spaces';
+import { OrderBy } from "./orderBy";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { HttpProvider } from '../providers/http/http';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    RemoveSpaces,
+    OrderBy
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,6 @@
+www/*
+node_modules/*
+platforms/*
+*.md
+*.md
+plugins/*
