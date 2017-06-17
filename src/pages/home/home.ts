@@ -54,7 +54,7 @@ initializeItems() {
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.coinsMarketDataToUse = this.coinsMarketDataToUse.filter((item) => {
-        return ((item.name.toLowerCase().indexOf(val.toLowerCase()) > -1) || (item.symbol.toLowerCase().indexOf(val.toLowerCase()) > -1) );
+        return ((item.long.toLowerCase().indexOf(val.toLowerCase()) > -1) || (item.short.toLowerCase().indexOf(val.toLowerCase()) > -1) );
       })
     }
   }
@@ -74,7 +74,7 @@ priceCheck(){
               this.coinsMarketData[i].red=false;
               this.coinsMarketData[i].green=true;
             }
-            else
+            else if (this.coinsMarketData[i].red == false && this.coinsMarketData[i].green==false )
             {
               this.defaultColor = true;
             }
@@ -190,10 +190,10 @@ getCurrencyData(){
       } ,
       () => {
         this.loading.dismiss();
-        // let timeoutId = setInterval(() => { 
-        //   this.coinsDataLoop ();
-        //   console.log('CoinsDataLoop Called');
-        // }, 3000);
+        let timeoutId = setInterval(() => { 
+          this.coinsDataLoop ();
+          console.log('CoinsDataLoop Called');
+        }, 3000);
         console.log('getData completed');
       }
     );
